@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>htmx demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="h-screen w-screen flex flex-col items-center bg-purple-300">
+    <div class="w-1/2 mt-2.5 py-1.5 flex flex-col justify-center items-center bg-indigo-500 text-slate-100 shadow-md">
+      <h4 class="text-center">People</h4>
+      <div id="people_container"></div>
+      <button 
+        class="bg-purple-100 mt-1.5 px-1.5 text-slate-900 hover:bg-purple-300 hover:text-slate-100 active:bg-purple-100 active:text-slate-900"
+        hx-get="api/people"
+        hx-target="#people_container"
+        hx-swap="innerHTML"
+      >Fetch People</button>
+    </div>
+    <script src="htmx.js"></script>
+  </body>
+</html>

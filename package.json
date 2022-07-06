@@ -1,0 +1,50 @@
+{
+  "name": "htmx-demo",
+  "version": "1.0.0",
+  "description": "an htmx demo",
+  "main": "index.ts",
+  "scripts": {
+    "compile:source": "node_modules/typescript/bin/tsc",
+    "compile:styles": " npx tailwindcss -i style.css -o ./out/output.css",
+    "prestart": "npm run compile:source && npm run compile:styles",
+    "start": "node out/index.js",
+    "format": "node node_modules/prettier/bin-prettier.js -c -w .",
+    "lint": "node node_modules/eslint/bin/eslint.js \"**/*.ts\" --fix",
+    "test": "node node_modules/mocha/bin/mocha.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "keywords": [
+    "htmx"
+  ],
+  "author": "Jeff Morrow",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "htmx.org": "^1.7.0",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/chai": "^4.3.1",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.1",
+    "@types/mustache": "^4.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "chai": "^4.3.6",
+    "eslint": "^8.19.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.4",
+    "typescript": "^4.7.4"
+  }
+}
