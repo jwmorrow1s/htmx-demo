@@ -1,3 +1,17 @@
-{{#people}}
-<p>{{.}}</p>
-{{/people}}
+<div id="people_container"
+    class="w-1/2 mt-2.5 py-1.5 flex flex-col justify-center items-center bg-indigo-500 text-slate-100 shadow-md">
+    <h4 class="text-center">People</h4>
+    {{#people}}
+    <ol>
+        <li class="w-44 my-1.5 p-1.5 bg-red-300 text-zinc-900 text-center">name: {{name}}</li>
+        <li class="w-44 my-1.5 p-1.5 bg-green-300 text-zinc-900 text-center">hair color: {{hair_color}}</li>
+        <li class="w-44 my-1.5 p-1.5 bg-blue-300 text-zinc-900 text-center">disposition: {{disposition}}</li>
+    </ol>
+    <br />
+    {{/people}}
+    <button
+        class="bg-purple-100 my-1.5 px-1.5 text-slate-900 hover:bg-purple-300 hover:text-slate-100 active:bg-purple-100 active:text-slate-900"
+        hx-get="api/people{{#show}}?hide=true{{/show}}" hx-target="#people_container" hx-swap="outerHTML">
+        the value: {{show}}
+    </button>
+</div>
