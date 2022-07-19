@@ -9,9 +9,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="h-screen w-screen flex flex-col items-center bg-purple-300">
+<body class="[font-family:Lato] h-screen w-screen flex flex-col items-center bg-purple-300">
+  <!-- TODO: handle fade in via opacity? -->
   <div id="people_container" hx-get="api/people?hide=true" hx-trigger="load once" hx-swap="outerHTML"></div>
   <script src="htmx.js"></script>
+  <script src="hyperscript.js"></script>
 </body>
 
 </html>

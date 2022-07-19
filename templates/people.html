@@ -1,17 +1,32 @@
 <div id="people_container"
-    class="w-1/2 mt-2.5 py-1.5 flex flex-col justify-center items-center bg-indigo-500 text-slate-100 shadow-md">
-    <h4 class="text-center">People</h4>
+    class="htmx-added:scale-y-0 htmx-added:-translate-y-1/2 scale-y-100 transition duration-300 rounded w-1/2 min-w-[280px] max-w-[600px] mt-2.5 py-1.5 flex flex-col justify-center items-center bg-indigo-500 text-slate-100 shadow-md">
+    <h4 class="text-center text-2xl text-shadow shadow-black">People</h4>
     {{#people}}
-    <ol>
-        <li class="w-44 my-1.5 p-1.5 bg-red-300 text-zinc-900 text-center">name: {{name}}</li>
-        <li class="w-44 my-1.5 p-1.5 bg-green-300 text-zinc-900 text-center">hair color: {{hair_color}}</li>
-        <li class="w-44 my-1.5 p-1.5 bg-blue-300 text-zinc-900 text-center">disposition: {{disposition}}</li>
-    </ol>
+    <ul class="mb-3 first-of-type:mt-3 last-of-type:mb-1.5 transition-all">
+        <li class="flex flex-row justify-between items-center text-zinc-900">
+            <div class="w-52 p-1.5 bg-red-300 text-left shadow-inner shadow-white">name: {{name}}
+            </div>
+            <button
+                class="ml-1.5 p-1 bg-amber-300 hover:bg-amber-600 hover:scale-110 active:bg-amber-300 hover:text-white shadow-inner shadow-white transition delay-50 duration-3000">edit</button>
+        </li>
+        <li class="flex flex-row justify-between items-center text-zinc-900">
+            <div class="w-52 p-1.5 bg-green-300 text-left shadow-inner shadow-white">hair color:
+                {{hair_color}}</div>
+            <button
+                class="ml-1.5 p-1 bg-amber-300 hover:bg-amber-600 hover:scale-110 active:bg-amber-300 hover:text-white shadow-inner shadow-white transition delay-50 duration-3000">edit</button>
+        </li>
+        <li class="flex flex-row justify-between items-center text-zinc-900">
+            <div class="w-52 p-1.5 bg-blue-300 text-left shadow-inner shadow-white">disposition:
+                {{disposition}}</div>
+            <button
+                class="ml-1.5 p-1 bg-amber-300 hover:bg-amber-600 hover:scale-110 active:bg-amber-300 hover:text-white shadow-inner shadow-white transition delay-50 duration-3000">edit</button>
+        </li>
+    </ul>
     <br />
     {{/people}}
     <button
-        class="bg-purple-100 my-1.5 px-1.5 text-slate-900 hover:bg-purple-300 hover:text-slate-100 active:bg-purple-100 active:text-slate-900"
+        class="rounded bg-purple-300 my-1.5 px-1.5 text-slate-900 hover:bg-purple-600 hover:scale-110 hover:text-slate-100 active:bg-purple-300 active:text-slate-900 shadow-inner shadow-white transition delay-50 duration-3000"
         hx-get="api/people{{#show}}?hide=true{{/show}}" hx-target="#people_container" hx-swap="outerHTML">
-        the value: {{show}}
+        {{^show}}Show{{/show}}{{#show}}Hide{{/show}} People
     </button>
 </div>
